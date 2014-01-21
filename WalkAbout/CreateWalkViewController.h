@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
+#import <CoreMotion/CoreMotion.h>
 #import "Clue.h"
 #import "CreateClueViewController.h"
 
@@ -34,6 +35,7 @@
     BOOL descriptionAlert;
     BOOL walkStarted;
     //BOOL didPush;
+    CMMotionManager *motionManager;
     CLLocationManager *locationManager;
     
     //Need to find out better what variables these are
@@ -76,6 +78,7 @@
 //@property (nonatomic, retain) UIButton *createClueButton;
 @property (nonatomic, retain) UIImageView *imageView;
 @property (nonatomic, retain) UIImageView *foreImage;
+@property (strong,nonatomic) CMMotionManager *motionManager;
 @property (nonatomic, retain) CLLocationManager *locationManager;
 @property (nonatomic, retain) NSString *walkName;
 @property (nonatomic, retain) NSString *userName;

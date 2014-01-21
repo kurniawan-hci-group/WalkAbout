@@ -177,6 +177,8 @@
     [locationManager startUpdatingLocation];
     
     // Enable listening to the accelerometer
+    if (!motionManager) motionManager = [[CMMotionManager alloc] init];
+    // Old accelerometer code - DEPRECATED BY ZAK
     [[UIAccelerometer sharedAccelerometer] setUpdateInterval:1.0 / kUpdateFrequency];
     [[UIAccelerometer sharedAccelerometer] setDelegate:self];
     
@@ -694,7 +696,17 @@
     isSleeping = true;
 }
 
+- (void)startMyMotionDetect
+{
+    
+    __block float stepMoveFactor = 15;
+    
+    [motionManager showsDeviceMovementDisplay];
+    
+}
+
 //the delegate needs to be set to nil before the view controller is completely deallocated, otherwise app will crash
+//DEPRECATED BY ZAK
 -(void)dealloc
 {
     [[UIAccelerometer sharedAccelerometer] setDelegate:nil];

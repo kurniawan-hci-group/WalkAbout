@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
+#import <CoreMotion/CoreMotion.h>
 #import "Clue.h"
 #import "ClueViewController.h"
 #import "CreateClueViewController.h"
@@ -21,12 +22,12 @@
     double py;
     double pz;
     
-    
     int numSteps;
     int accuracyCounter;
     int dummyIndex;
     int passingID;
     BOOL isChange;
+    CMMotionManager *motionManager;
     CLLocationManager *locationManager;
     
     //Need to find out better what variables these are

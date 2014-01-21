@@ -369,6 +369,11 @@
 				CLASSPREFIX = WalkAbout;
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Dustin Adams";
+				TargetAttributes = {
+					0BB660B5176B7770003D9B22 = {
+						DevelopmentTeam = Z5SLZ6QPTL;
+					};
+				};
 			};
 			buildConfigurationList = 0BB660B1176B7770003D9B22 /* Build configuration list for PBXProject "WalkAbout" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -578,10 +583,15 @@
 		0BB660EF176B7771003D9B22 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "WalkAbout/WalkAbout-Prefix.pch";
 				INFOPLIST_FILE = "WalkAbout/WalkAbout-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -589,10 +599,15 @@
 		0BB660F0176B7771003D9B22 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "WalkAbout/WalkAbout-Prefix.pch";
 				INFOPLIST_FILE = "WalkAbout/WalkAbout-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

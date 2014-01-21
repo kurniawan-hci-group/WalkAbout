@@ -85,9 +85,15 @@
 	locationManager.delegate = self;
 	[locationManager startUpdatingHeading];
     
-    // Enable listening to the accelerometer
-    [[UIAccelerometer sharedAccelerometer] setUpdateInterval:1.0 / kUpdateFrequency];
-    [[UIAccelerometer sharedAccelerometer] setDelegate:self];
+    // Allocate motion manager and enable listening to the accelerometer
+    self.motionManager = [[CMMotionManager alloc] init];
+    self.motionManager.accelerometerUpdateInterval = 0.05; // 20 Hz
+    [self.motionManager startAccelerometerUpdates];
+    [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(getAccelerometer:) userInfo:nil repeats:YES];
+    
+    //Old accelerometer code.
+    //[[UIAccelerometer sharedAccelerometer] setUpdateInterval:1.0 / kUpdateFrequency];
+    //[[UIAccelerometer sharedAccelerometer] setDelegate:self];
     
     px = py = pz = 0;
     numSteps = 0;
@@ -553,6 +559,41 @@
     }
 }
 
+-(void) getAccelerometer:(NSTimer *) timer {
+    NSLog (@"X: %.2f Y: %.2f Z: %.2f", self.motionManager.accelerometerData.acceleration.x, self.motionManager.accelerometerData.acceleration.y, self.motionManager.accelerometerData.acceleration.z);
+    if (!isSleeping && viewIsShowing && walkStarted)
+    {
+        //isSleeping = YES;
+        [self performSelector:@selector(wakeUp) withObject:nil afterDelay:0.3];
+        numSteps += 1;
+        if (numSteps >= 680)
+        {
+            numSteps = 0;
+        }
+        //ONCE A STEP IS DETECTED, GRAB THE LAST KNOWN HEADING, AND WITH THE ESTIMATED STEP SIZE, UPDATE DISPLACEMENT
+        //z = step size (constant right now)
+        //Theta = newRad
+        //DeltaX = z * cos(Theta)
+        //DeltaY = z * sin(Theta)
+        //In terms of GPS units, one step (app. 2.5 ft.) is equal to about .00000685
+        currLongitude = currLongitude + (.00000685 * cos(newRad + M_PI / 2));
+        currLatitude = currLatitude + (.00000685 * sin(newRad + M_PI / 2));
+        NSLog (@"STEP DETECTED:\nUPDATED DISPLACEMENT: %f, %f", currLongitude, currLatitude);
+        
+        //instead of finding the closest point which we need to move close to, we're going to use the numSteps we've taken as an index to get our location
+        
+        currLatitude = path_x_coords[numSteps/2];
+        currLongitude = path_y_coords[numSteps/2];
+    
+        foreImage.frame = CGRectMake((((640 * (123.527941 + currLongitude)) / .001650) + 320)/2.0, (((640 * (41.305425 - currLatitude)) / .001280) + 320)/2.0, foreImage.frame.size.width, foreImage.frame.size.height);
+        [scrollView addSubview:imageView];
+        //End moving icon
+        
+        
+    }
+
+}
+
 -(void)accelerometer:(UIAccelerometer *)accelerometer didAccelerate:(UIAcceleration *)acceleration
 {
     xx = acceleration.x;
@@ -689,7 +730,7 @@
 
 -(void)dealloc
 {
-    [[UIAccelerometer sharedAccelerometer] setDelegate:nil];
+    //[[UIAccelerometer sharedAccelerometer] setDelegate:nil]; // Deprecated since motionmanager is now used.
 }
 
 - (void)didReceiveMemoryWarning
