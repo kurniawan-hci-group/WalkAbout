@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>AAnswer</key>
+		<string>Houston</string>
+		<key>BAnswer</key>
+		<string>Dallas</string>
+		<key>CAnswer</key>
+		<string>Austin</string>
+		<key>ClueID</key>
+		<integer>0</integer>
+		<key>ClueLat</key>
+		<real>41.304369999999999</real>
+		<key>ClueLong</key>
+		<real>-123.527798</real>
+		<key>ClueTitle</key>
+		<string>bay tree</string>
+		<key>CorrectAnswer</key>
+		<integer>2</integer>
+		<key>DAnswer</key>
+		<string>San Antonio</string>
+		<key>Description</key>
+		<string>This is a great description</string>
+		<key>IsAnswered</key>
+		<false/>
+		<key>IsDeleted</key>
+		<false/>
+		<key>PointValue</key>
+		<integer>20</integer>
+		<key>Question</key>
+		<string>Capital of Texas?</string>
+		<key>QuestionAnswer</key>
+		<true/>
+	</dict>
+	<dict>
+		<key>AAnswer</key>
+		<string>Sacramento</string>
+		<key>BAnswer</key>
+		<string>Los Angeles</string>
+		<key>CAnswer</key>
+		<string>San Francisco</string>
+		<key>ClueID</key>
+		<integer>1</integer>
+		<key>ClueLat</key>
+		<real>41.304836999999999</real>
+		<key>ClueLong</key>
+		<real>-123.52747100000001</real>
+		<key>ClueTitle</key>
+		<string>posion oak</string>
+		<key>CorrectAnswer</key>
+		<integer>0</integer>
+		<key>DAnswer</key>
+		<string>Santa Cruz</string>
+		<key>Description</key>
+		<string>Nasty stuff</string>
+		<key>IsAnswered</key>
+		<false/>
+		<key>IsDeleted</key>
+		<false/>
+		<key>PointValue</key>
+		<integer>20</integer>
+		<key>Question</key>
+		<string>Capital of Cali?</string>
+		<key>QuestionAnswer</key>
+		<true/>
+	</dict>
+</array>
+</plist>

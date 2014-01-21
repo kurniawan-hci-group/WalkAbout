@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>description</key>
+		<string>Great</string>
+		<key>difficulty</key>
+		<string>Medium</string>
+		<key>directions</key>
+		<string>left, right, left, right</string>
+		<key>uniqueID</key>
+		<string>23-09-2013-15-57-37</string>
+		<key>userName</key>
+		<string>dusty9</string>
+		<key>walkName</key>
+		<string>dusty</string>
+	</dict>
+	<dict>
+		<key>description</key>
+		<string>Test walk</string>
+		<key>difficulty</key>
+		<string>Easy</string>
+		<key>directions</key>
+		<string>left, right, left, right</string>
+		<key>uniqueID</key>
+		<string>10-09-2013-12-41-17</string>
+		<key>userName</key>
+		<string>Admin</string>
+		<key>walkName</key>
+		<string>Holly-</string>
+	</dict>
+	<dict>
+		<key>description</key>
+		<string>Another test walk</string>
+		<key>difficulty</key>
+		<string>Easy</string>
+		<key>directions</key>
+		<string>left, right, left, right</string>
+		<key>uniqueID</key>
+		<string>07-09-2013-09-43-03</string>
+		<key>userName</key>
+		<string>Admin</string>
+		<key>walkName</key>
+		<string>Holly</string>
+	</dict>
+	<dict>
+		<key>description</key>
+		<string>Nothing major</string>
+		<key>difficulty</key>
+		<string>Easy</string>
+		<key>directions</key>
+		<string>Go left
+Then right
+Then straight</string>
+		<key>uniqueID</key>
+		<string>09-01-2014-09-09-32</string>
+		<key>userName</key>
+		<string>dustin001</string>
+		<key>walkName</key>
+		<string>lab</string>
+	</dict>
+	<dict>
+		<key>description</key>
+		<string>Yo yo</string>
+		<key>difficulty</key>
+		<string>Easy</string>
+		<key>uniqueID</key>
+		<string>09-01-2014-09-14-33</string>
+		<key>userName</key>
+		<string>dustin001</string>
+		<key>walkName</key>
+		<string>another test</string>
+	</dict>
+</array>
+</plist>

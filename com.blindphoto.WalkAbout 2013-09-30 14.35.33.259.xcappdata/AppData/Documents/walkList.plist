@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>description</key>
+		<string>dusty</string>
+		<key>difficulty</key>
+		<string>Easy</string>
+		<key>directions</key>
+		<string>Left
+Right
+Left
+Rught</string>
+		<key>uniqueID</key>
+		<string>27-09-2013-17-31-01</string>
+		<key>userName</key>
+		<string>dusty01</string>
+		<key>walkName</key>
+		<string>dusty</string>
+	</dict>
+	<dict>
+		<key>description</key>
+		<string>Very nice</string>
+		<key>difficulty</key>
+		<string>Medium</string>
+		<key>directions</key>
+		<string>Left
+Right
+Striaght
+Back</string>
+		<key>uniqueID</key>
+		<string>30-09-2013-14-33-20</string>
+		<key>userName</key>
+		<string>dusty01</string>
+		<key>walkName</key>
+		<string>Sep 30</string>
+	</dict>
+</array>
+</plist>

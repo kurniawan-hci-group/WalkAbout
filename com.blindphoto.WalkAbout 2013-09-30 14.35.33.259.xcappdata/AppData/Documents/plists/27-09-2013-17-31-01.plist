@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>ClueID</key>
+		<integer>0</integer>
+		<key>ClueLat</key>
+		<real>41.304960999999999</real>
+		<key>ClueLong</key>
+		<real>-123.527422</real>
+		<key>ClueTitle</key>
+		<string>ba</string>
+		<key>Description</key>
+		<string>ba</string>
+		<key>IsAnswered</key>
+		<false/>
+		<key>IsDeleted</key>
+		<false/>
+		<key>QuestionAnswer</key>
+		<false/>
+	</dict>
+</array>
+</plist>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>AAnswer</key>
+		<string>Duaty</string>
+		<key>BAnswer</key>
+		<string>Snoop</string>
+		<key>CAnswer</key>
+		<string>Wayne</string>
+		<key>ClueID</key>
+		<integer>0</integer>
+		<key>ClueLat</key>
+		<real>41.304929999999999</real>
+		<key>ClueLong</key>
+		<real>-123.52741</real>
+		<key>CorrectAnswer</key>
+		<integer>0</integer>
+		<key>DAnswer</key>
+		<string>Adam</string>
+		<key>IsAnswered</key>
+		<false/>
+		<key>IsDeleted</key>
+		<false/>
+		<key>PointValue</key>
+		<integer>20</integer>
+		<key>Question</key>
+		<string>What's my name?</string>
+		<key>QuestionAnswer</key>
+		<true/>
+	</dict>
+	<dict>
+		<key>AAnswer</key>
+		<string>Nothing</string>
+		<key>BAnswer</key>
+		<string>Everythjnf</string>
+		<key>CAnswer</key>
+		<string>Something</string>
+		<key>ClueID</key>
+		<integer>1</integer>
+		<key>ClueLat</key>
+		<real>41.304797000000001</real>
+		<key>ClueLong</key>
+		<real>-123.527457</real>
+		<key>CorrectAnswer</key>
+		<integer>1</integer>
+		<key>DAnswer</key>
+		<string>A bit</string>
+		<key>IsAnswered</key>
+		<false/>
+		<key>IsDeleted</key>
+		<false/>
+		<key>PointValue</key>
+		<integer>4</integer>
+		<key>Question</key>
+		<string>What is up?</string>
+		<key>QuestionAnswer</key>
+		<true/>
+	</dict>
+</array>
+</plist>

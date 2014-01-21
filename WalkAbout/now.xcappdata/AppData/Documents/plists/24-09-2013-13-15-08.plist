@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>ClueID</key>
+		<integer>0</integer>
+		<key>ClueLat</key>
+		<real>41.304889000000003</real>
+		<key>ClueLong</key>
+		<real>-123.527439</real>
+		<key>ClueTitle</key>
+		<string>cmptr</string>
+		<key>Description</key>
+		<string>hahahaha ahahaha ahaha</string>
+		<key>IsAnswered</key>
+		<false/>
+		<key>IsDeleted</key>
+		<false/>
+		<key>QuestionAnswer</key>
+		<false/>
+	</dict>
+	<dict>
+		<key>ClueID</key>
+		<integer>1</integer>
+		<key>ClueLat</key>
+		<real>41.304761999999997</real>
+		<key>ClueLong</key>
+		<real>-123.527536</real>
+		<key>ClueTitle</key>
+		<string>ha</string>
+		<key>Description</key>
+		<string>hahahaha ahaha aha</string>
+		<key>IsAnswered</key>
+		<false/>
+		<key>IsDeleted</key>
+		<false/>
+		<key>QuestionAnswer</key>
+		<true/>
+	</dict>
+	<dict>
+		<key>AAnswer</key>
+		<string>ha</string>
+		<key>BAnswer</key>
+		<string>ha</string>
+		<key>CAnswer</key>
+		<string>ha</string>
+		<key>ClueID</key>
+		<integer>2</integer>
+		<key>ClueLat</key>
+		<real>41.304704000000001</real>
+		<key>ClueLong</key>
+		<real>-123.52754</real>
+		<key>CorrectAnswer</key>
+		<string>ja</string>
+		<key>DAnswer</key>
+		<string>ha</string>
+		<key>IsAnswered</key>
+		<false/>
+		<key>IsDeleted</key>
+		<false/>
+		<key>Question</key>
+		<string>ha</string>
+		<key>QuestionAnswer</key>
+		<false/>
+	</dict>
+</array>
+</plist>
