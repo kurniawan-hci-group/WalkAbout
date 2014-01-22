@@ -10,12 +10,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WalkAbout/CreateWalkViewController.m"
-            timestampString = "412040820.924629"
+            timestampString = "412112911.734583"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "615"
-            endingLineNumber = "615"
-            landmarkName = "-accelerometer:didAccelerate:"
+            startingLineNumber = "611"
+            endingLineNumber = "611"
+            landmarkName = "-getAccelerometer:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -26,12 +26,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WalkAbout/CreateWalkViewController.m"
-            timestampString = "412040820.924629"
+            timestampString = "412112911.734583"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "632"
-            endingLineNumber = "632"
-            landmarkName = "-accelerometer:didAccelerate:"
+            startingLineNumber = "610"
+            endingLineNumber = "610"
+            landmarkName = "-getAccelerometer:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -42,12 +42,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WalkAbout/CreateWalkViewController.m"
-            timestampString = "412040820.924629"
+            timestampString = "412114432.296561"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "618"
-            endingLineNumber = "618"
-            landmarkName = "-accelerometer:didAccelerate:"
+            startingLineNumber = "658"
+            endingLineNumber = "658"
+            landmarkName = "-position"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WalkAbout/CreateWalkViewController.m"
+            timestampString = "412114966.713158"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "644"
+            endingLineNumber = "644"
+            landmarkName = "-position"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
