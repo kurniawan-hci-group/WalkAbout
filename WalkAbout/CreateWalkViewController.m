@@ -28,6 +28,7 @@ double Sensor_Data[8];
 double countx,county ;
 double accelerationx[2], accelerationy[2];
 double velocityx[2], velocityy[2];
+double pythagoreanVelocity;
 double positionX[2];
 double positionY[2];
 double positionZ[2];
@@ -580,19 +581,15 @@ double sstatex,sstatey;
         //isSleeping = YES;
         [self performSelector:@selector(wakeUp) withObject:nil afterDelay:0.3];
         
-        //ONCE A STEP IS DETECTED, GRAB THE LAST KNOWN HEADING, AND WITH THE ESTIMATED STEP SIZE, UPDATE DISPLACEMENT
-        //z = step size (constant right now)
-        //Theta = newRad
-        //DeltaX = z * cos(Theta)
-        //DeltaY = z * sin(Theta)
-        //In terms of GPS units, one step (app. 2.5 ft.) is equal to about .00000685
+        //Magic box the system
+        //Take guesses at
         [self position];
         if(currLongitude > -123.525886) {
             currLongitude = -123.525880;
         } else if (currLongitude < -123.528749) {
             currLongitude = -123.5286;
         } else {
-            currLongitude = positionX[0] * (.00000685 * cos(newRad + M_PI / 2)) - 123.527941;
+            currLongitude = pythagoreanVelocity * (.0000685 * cos(newRad + M_PI / 2)) + currLongitude;
         }
         
         if (currLatitude > 41.306104) {
@@ -600,13 +597,14 @@ double sstatex,sstatey;
         } else if (currLatitude < 41.30363) {
             currLatitude = 41.3037;
         } else {
-            currLatitude = positionY[0] * (.00000685 * sin(newRad + M_PI / 2)) + 41.305425;
+            currLatitude = pythagoreanVelocity * (.0000685 * sin(newRad + M_PI / 2)) + currLatitude;
         }
         
         //instead of finding the closest point which we need to move close to, we're going to use the numSteps we've taken as an index to get our location
         
         //currLatitude = path_x_coords[numSteps/2];
         //currLongitude = path_y_coords[numSteps/2];
+        NSLog(@"Moving with velocity %f towards heading %f", pythagoreanVelocity, newRad);
         // Magic numbers for a 'bounding box'
         foreImage.frame = CGRectMake((((640 * (123.527941 + currLongitude)) / .001650) + 320)/2.0, (((640 * (41.305425 - currLatitude)) / .001280) + 320)/2.0, foreImage.frame.size.width, foreImage.frame.size.height);
         [scrollView addSubview:imageView];
@@ -616,17 +614,17 @@ double sstatex,sstatey;
 }
 
 - (void) movement_end_check {
-    if (accelerationx[1] < 0.1) //we count the number of acceleration samples that equals cero
+    if (accelerationx[1] < 0.20) //we count the number of acceleration samples that equals cero
     { countx++;}
     else { countx =0;}
     
-    if (countx>=2) //if this number exceeds 25, we can assume that velocity is cero
+    if (countx>=25) //if this number exceeds 25, we can assume that velocity is cero
     {
         velocityx[1]=0;
         velocityx[0]=0;
     }
     
-    if (accelerationy[1] < 0.1) //we do the same for the Y axis
+    if (accelerationy[1] < 0.20) //we do the same for the Y axis
     { county++;}
     else { county =0;}
     
@@ -640,41 +638,33 @@ double sstatex,sstatey;
 - (void) position {
     unsigned char count2 ;
     count2=0;
-    double devicePitch = self.motionManager.deviceMotion.attitude.pitch;
-    double adjustedPitch = devicePitch*2/3;
+    double adjustedPitch = self.motionManager.deviceMotion.attitude.pitch *2/3;
     double adjustedAcceloY = self.motionManager.accelerometerData.acceleration.y + adjustedPitch;
     double adjustedAcceloZ = self.motionManager.accelerometerData.acceleration.z + 1 - adjustedPitch;
-    do{
-        accelerationx[1]=accelerationx[1] + self.motionManager.accelerometerData.acceleration.z; //filtering routine for noise attenuation
-        accelerationy[1]=accelerationy[1] + self.motionManager.accelerometerData.acceleration.z; //64 samples are averaged. The resulting
-        //average represents the acceleration of an instant
-        count2++;
-        
-    }while (count2!=4); // 64 sums of the acceleration sample
+    accelerationx[1]= adjustedAcceloY;
+    accelerationy[1]= adjustedAcceloZ;
+    count2++;
     
+    //accelerationx[1]= accelerationx[1]/4; // division by 4
+    //accelerationy[1]= accelerationy[1]/4;
     
-    accelerationx[1]= accelerationx[1]/4; // division by 64
-    accelerationy[1]= accelerationy[1]/4;
-    
-    accelerationx[1] = accelerationx[1] - (int)sstatex; //eliminating zero reference
-    //offset of the acceleration data
-    accelerationy[1] = accelerationy[1] - (int)sstatey; // to obtain positive and negative
-    //acceleration
-    
-    
-    if ((accelerationx[1] <=3)&&(accelerationx[1] >= -3)) //Discrimination window applied
+    if ((accelerationx[1] <=0.15)&&(accelerationx[1] >= -0.15)) //Discrimination window applied
     {accelerationx[1] = 0;} // to the X axis acceleration
     //variable
     
-    if ((accelerationy[1] <=3)&&(accelerationy[1] >= -3))
+    if ((accelerationy[1] <=0.15)&&(accelerationy[1] >= -0.15))
     {accelerationy[1] = 0;}
+    
+    //NSLog(@"Acceleration is: %f %f", accelerationx[0], accelerationy[0]);
     
     //first X integration:
     velocityx[1]= velocityx[0]+ accelerationx[0]+ ((accelerationx[1] -accelerationx[0])/2);
-    //second X integration:
-    positionX[1]= positionX[0] + velocityx[0] + ((velocityx[1] - velocityx[0])/2);
     //first Y integration:
     velocityy[1] = velocityy[0] + accelerationy[0] + ((accelerationy[1] -accelerationy[0])/2);
+    
+    
+    //second X integration:
+    positionX[1]= positionX[0] + velocityx[0] + ((velocityx[1] - velocityx[0])/2);
     //second Y integration:
     positionY[1] = positionY[0] + velocityy[0] + ((velocityy[1] - velocityy[0])/2);
     
@@ -686,23 +676,20 @@ double sstatex,sstatey;
     velocityx[0] = velocityx[1]; //Same done for the velocity variable
     velocityy[0] = velocityy[1];
     
+    pythagoreanVelocity = sqrt((velocityx[0]*velocityx[0]) + (velocityy[0] * velocityy[0]));
     
+    // These numbers need to be calibrated
     positionX[1] = positionX[1]*262144; //The idea behind this shifting (multiplication)
     //is a sensibility adjustment.
     positionY[1] = positionY[1]*262144; //Some applications require adjustments to a
-    //particular situation
-    //i.e. mouse application
-    
-    positionX[1] = positionX[1]/262144; //once the variables are sent them must return to
-    positionY[1] = positionY[1]/262144; //their original state
     
     [self movement_end_check];
     
     positionX[0] = positionX[1]; //actual position data must be sent to the
     positionY[0] = positionY[1]; //previous position
+    //NSLog(@"Position is: %f %f", positionX[0], positionY[0]);
     
     direction = 0; // data variable to direction variable reset
-    NSLog(@"Velocity: %f %f", velocityx[0], velocityy[0]);
 }
 
 - (void)wakeUp
